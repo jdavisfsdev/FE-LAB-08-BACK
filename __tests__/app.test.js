@@ -38,4 +38,23 @@ describe('demo routes', () => {
     expect(res.body).toEqual(sauce);
   });
 
+  it('GET all sauces', async () => {
+    const hot = await Sauce.insert({
+      name: 'hot',
+      price: '$3.99',
+      heat: 'oohweee'
+    });
+
+    const mild = await Sauce.insert({
+      name: 'mild',
+      price: '$7.50',
+      heat: 'ehh'
+    });
+
+    const res = await request(app)
+      .get('/api/v1/sauces');
+
+    expect(res.body).toEqual([hot, mild]);
+  });
+
 });
