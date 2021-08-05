@@ -85,4 +85,20 @@ describe('demo routes', () => {
     expect(res.body).toEqual(yikesUpdate);
   });
 
+  it('DELETE sauce by ID', async () => {
+    const yikes = await request(app)
+      .post('/api/v1/sauces')
+      .send({
+        name: 'yikes',
+        price: '$11',
+        heat: 'uihd',
+        url: 'qwqwq'
+      });
+
+    const res = await Sauce.deleteItem(yikes.body.id);
+    request(app)
+      .delete(`/api/v1/sauces/${yikes.id}`);
+    expect(res.body).toEqual(yikes.id);
+  });
+
 });
