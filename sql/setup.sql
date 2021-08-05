@@ -10,4 +10,4 @@ CREATE TABLE sauces (
     name TEXT NOT NULL,
     price TEXT NOT NULL,
     heat TEXT NOT NULL
-)
+);

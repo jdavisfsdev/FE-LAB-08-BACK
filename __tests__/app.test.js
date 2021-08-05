@@ -17,9 +17,9 @@ describe('demo routes', () => {
         price: '$12.50',
         heat: 'pretty hot'
       });
-
-    expect(res.body).toContain({
-      id: 1,
+ 
+    expect(res.body).toEqual({
+      id: '1',
       name: 'super hot',
       price: '$12.50',
       heat: 'pretty hot'
