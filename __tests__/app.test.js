@@ -62,4 +62,27 @@ describe('demo routes', () => {
     expect(res.body).toEqual([hot, mild]);
   });
 
+  it('UPDATE a sauce by id', async () => {
+    const yikes = await request(app)
+      .post('/api/v1/sauces')
+      .send({
+        name: 'yikess',
+        price: '$44.00',
+        heat: 'holy hell',
+        url: 'cnjisld'
+      });
+
+    const yikesUpdate = await Sauce.updateItem(yikes.body.id, {
+      name: 'YikesUpdated',
+      price: '$44.00',
+      heat: 'holy hell',
+      url: 'tytyty'
+    });
+
+    const res = await request(app)
+      .get(`/api/v1/sauces/${yikesUpdate.id}`);
+
+    expect(res.body).toEqual(yikesUpdate);
+  });
+
 });
