@@ -15,14 +15,16 @@ describe('demo routes', () => {
       .send({
         name: 'super hot',
         price: '$12.50',
-        heat: 'pretty hot'
+        heat: 'pretty hot',
+        url: 'dvfsvf'
       });
  
     expect(res.body).toEqual({
       id: '1',
       name: 'super hot',
       price: '$12.50',
-      heat: 'pretty hot'
+      heat: 'pretty hot',
+      url: 'dvfsvf'
     });
   });
 
@@ -30,7 +32,8 @@ describe('demo routes', () => {
     const sauce = await Sauce.insert({
       name: 'aardy vaarky',
       price: '$7.99',
-      heat: 'Medium light'
+      heat: 'Medium light',
+      url: 'dvfsvf'
     });
 
     const res = await request(app)
@@ -42,13 +45,15 @@ describe('demo routes', () => {
     const hot = await Sauce.insert({
       name: 'hot',
       price: '$3.99',
-      heat: 'oohweee'
+      heat: 'oohweee',
+      url: 'dvfsvf'
     });
 
     const mild = await Sauce.insert({
       name: 'mild',
       price: '$7.50',
-      heat: 'ehh'
+      heat: 'ehh',
+      url: 'dvfsvf'
     });
 
     const res = await request(app)

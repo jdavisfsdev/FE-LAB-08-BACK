@@ -9,5 +9,6 @@ CREATE TABLE sauces (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     price TEXT NOT NULL,
-    heat TEXT NOT NULL
+    heat TEXT NOT NULL,
+    url TEXT NOT NULL
 );
